@@ -1,11 +1,25 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script>
+    var socket = io.connect(); //load socket.io-client and connect to the host
+    function LEDOn() {
+        socket.emit("state", 1); //send button state to server
+    }
 
+    function LEDOff() {
+        socket.emit("state", 0); //send button state to server
+    }
+</script>
 <div class="main-div">
 <div style="text-align: center;">
     <mat-card>
               <mat-card-title>Control your LED</mat-card-title>
          
               <mat-card-content>
-                <mat-checkbox>Led czerwona</mat-checkbox><br>
+               <div style="text-align: left;">
+                <mat-checkbox id="state_red" checked="Red(isChecked)">Led czerwona (PIN )</mat-checkbox><br>
+                <mat-checkbox>Led żółta (PIN )</mat-checkbox><br>
+                <mat-checkbox>Led zielona (PIN )</mat-checkbox><br> <br>
+              </div>
                  <button mat-raised-button color="primary">Led</button>
           </mat-card-content> 
       </mat-card>
