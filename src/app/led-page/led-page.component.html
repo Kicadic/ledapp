@@ -1,27 +1,50 @@
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 <script>
     var socket = io.connect(); //load socket.io-client and connect to the host
-    function LEDOn() {
-        socket.emit("state", 1); //send button state to server
+    function RedOn() {
+        socket.emit("stateRed", 1); //send button state to server
     }
 
-    function LEDOff() {
-        socket.emit("state", 0); //send button state to server
+    function RedOff() {
+        socket.emit("stateRed", 0); //send button state to server
+    }
+
+function YellowOn() {
+        socket.emit("stateYellow", 1); //send button state to server
+    }
+
+    function YellowOff() {
+        socket.emit("stateYellow", 0); //send button state to server
+    }
+
+function GreenOn() {
+        socket.emit("stateGreen", 1); //send button state to server
+    }
+
+    function GreenOff() {
+        socket.emit("stateGreen", 0); //send button state to server
     }
 </script>
 <div class="main-div">
 <div style="text-align: center;">
-    <mat-card>
-              <mat-card-title>Control your LED</mat-card-title>
-         
-              <mat-card-content>
-               <div style="text-align: left;">
-                <mat-checkbox id="state_red" checked="Red(isChecked)">Led czerwona (PIN )</mat-checkbox><br>
-                <mat-checkbox>Led żółta (PIN )</mat-checkbox><br>
-                <mat-checkbox>Led zielona (PIN )</mat-checkbox><br> <br>
-              </div>
-                 <button mat-raised-button color="primary">Led</button>
-          </mat-card-content> 
-      </mat-card>
+   
+
+                 <button type="button" id="stateRed" onclick="RedOn()">Red On (PIN 21)</button>
+		<div class="divider"> </div>
+		<button type="button" id="stateRed" onclick="RedOff()">Red Off (PIN 21)</button>
+          	<br> <br>
+
+		<button type="button" id="stateYellow" onclick="YellowOn()">Yellow On (PIN 20)</button>
+		<div class="divider"> </div>
+		<button type="button" id="stateYellow" onclick="YellowOff()">Yellow Off (PIN 20)</button>
+		<br> <br>
+
+		<button type="button" id="stateGreen" onclick="GreenOn()">Green On (PIN 16)</button>
+		<div class="divider"> </div>
+		<button type="button" id="stateGreen" onclick="GreenOff()">Green Off (PIN 16)</button>
+
+
     </div>
     </div>
